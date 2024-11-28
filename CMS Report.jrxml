@@ -1,0 +1,281 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Blank_A4" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="dcf453b5-1218-4787-8f1d-2cec66b7bc42">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="New Data Adapter (28)"/>
+	<parameter name="Date" class="java.lang.String"/>
+	<parameter name="UPK23" class="java.lang.String"/>
+	<query language="SQL"><![CDATA[Select a.Name as "assetName", ol.name as "parkName", om.Name AS "oem", amm.Name AS "model"
+from processareaasset a
+	INNER join LocationProcessArea ar on ar.id = a.LocationProcessAreaId
+	inner join OrgLocation ol on ol.id = ar.LocationId
+	inner join AssetModelMaster amm ON amm.Id = a.AssetModelId
+	inner join OEMMaster om ON om.Id = amm.OEMId
+where a.ID=218
+
+]]></query>
+	<field name="assetName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="assetName"/>
+		<property name="com.jaspersoft.studio.field.label" value="assetName"/>
+	</field>
+	<field name="parkName" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="parkName"/>
+		<property name="com.jaspersoft.studio.field.label" value="parkName"/>
+	</field>
+	<field name="oem" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="oem"/>
+		<property name="com.jaspersoft.studio.field.label" value="oem"/>
+	</field>
+	<field name="model" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="model"/>
+		<property name="com.jaspersoft.studio.field.label" value="model"/>
+	</field>
+	<group name="assetName">
+		<expression><![CDATA[$F{assetName}]]></expression>
+	</group>
+	<group name="parkName">
+		<expression><![CDATA[$F{parkName}]]></expression>
+	</group>
+	<group name="oem">
+		<expression><![CDATA[$F{oem}]]></expression>
+	</group>
+	<group name="model">
+		<expression><![CDATA[$F{model}]]></expression>
+	</group>
+	<background splitType="Stretch"/>
+	<title height="303" splitType="Stretch">
+		<element kind="staticText" uuid="70b6a54c-b167-46fb-ac34-618fa38db2ef" mode="Opaque" x="0" y="15" width="555" height="50" backcolor="#FFFFCC" fontSize="20.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[VIBRATION ANALYSIS REPORT]]></text>
+			<box>
+				<pen lineWidth="1.5"/>
+				<topPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="1.5" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="c300807b-1ff1-4f1a-91b4-8c68815b5491" x="450" y="32" width="94" height="20" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{Date}]]></expression>
+		</element>
+		<element kind="textField" uuid="646f69ae-9064-4afb-be89-ff58f077a5cd" mode="Opaque" x="0" y="70" width="270" height="30" forecolor="#FFFFFF" backcolor="#9966FF" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{parkName}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="1cb0c1e7-b786-4053-b834-01132d171e6f"/>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="b283c0bc-a40e-4087-8c93-e87f6c75e4a0" mode="Opaque" x="0" y="110" width="270" height="30" backcolor="#CCCCFF" fontSize="18.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Turbine Details]]></text>
+		</element>
+		<element kind="staticText" uuid="3609a492-296d-447b-b491-c47f019c62a3" mode="Opaque" x="280" y="110" width="275" height="31" backcolor="#CCCCFF" fontSize="18.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Gearbox & Generator Details]]></text>
+		</element>
+		<element kind="textField" uuid="aae5f892-b433-4e63-af16-6b9cacd2151b" mode="Opaque" x="140" y="141" width="76" height="30" backcolor="#66CCCC" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{oem}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="057f4126-84b8-47d0-bbb9-f2b46a29870c"/>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="a176a4db-0d02-4ddc-beb2-f0ac30f469fa" mode="Opaque" x="210" y="141" width="60" height="30" backcolor="#66CCCC" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{model}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="50313069-34a7-42c8-8d11-c0bf7bf70503"/>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="9ac38b9f-365f-4926-a397-6b905372c0a6" mode="Opaque" x="0" y="140" width="140" height="30" backcolor="#66CCCC" fontSize="16.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Make]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="189df858-defa-4e01-b182-95e4bbd0f1d5" mode="Opaque" x="279" y="141" width="181" height="30" backcolor="#66CCCC" fontSize="16.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Gearbox Model]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="a238a04d-5237-4253-9634-96ea899a6147" mode="Opaque" x="0" y="171" width="140" height="30" backcolor="#66CCCC" fontSize="16.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Rating]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="0ea663c5-d5f5-441d-9a12-95dbfdf6b71d" mode="Opaque" x="140" y="171" width="130" height="30" backcolor="#66CCCC" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[2.2 MW]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="81178105-56bf-4e05-93b3-0dd22ee314f1" mode="Opaque" x="280" y="171" width="180" height="30" backcolor="#66CCCC" printWhenGroupChanges="model" fontSize="16.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Gear Ration]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="ac26a609-e428-4f28-a2c8-cbfd685f09c9" mode="Opaque" x="0" y="201" width="140" height="29" backcolor="#66CCCC" fontSize="16.0" bold="false" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Number of Blades]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="f33bae42-4564-44bd-aff2-a3808cd9fefc" mode="Opaque" x="140" y="200" width="130" height="30" backcolor="#66CCCC" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[3]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="93b7ecb3-dc9e-46b9-9633-e6693416dd2f" mode="Opaque" x="280" y="200" width="180" height="30" backcolor="#66CCCC" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Generator Rated Speed]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="5203e817-2afa-4cc1-b915-84bed88a781f" x="0" y="240" width="500" height="30" fontSize="18.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Turbine Health Severity]]></text>
+		</element>
+		<element kind="image" uuid="ada95c91-77bc-4ab4-8912-e10f0d7b27e6" x="0" y="22" width="117" height="36">
+			<expression><![CDATA["/Images/Report logo.tif"]]></expression>
+		</element>
+		<element kind="staticText" uuid="c5b0a068-6175-4058-933c-1edd0b36c84f" mode="Opaque" x="372" y="240" width="80" height="30" backcolor="#FFFF66" fontSize="18.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[Medium]]></text>
+		</element>
+		<element kind="textField" uuid="a94be50b-435f-4f5d-ab6c-3e3589b820e5" mode="Opaque" x="280" y="70" width="275" height="30" forecolor="#FFFFFF" backcolor="#9966FF" fontSize="16.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$F{assetName}]]></expression>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="186ad46b-e77a-453d-b34e-23e33d67025c"/>
+		</element>
+		<element kind="staticText" uuid="fb2c73bd-49cd-4ea4-9a83-46e75faf428f" mode="Opaque" x="460" y="141" width="95" height="29" backcolor="#66CCCC" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Atlas 1.21-ZF]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="278e696d-68ba-426e-b4c1-efec59087cac" mode="Opaque" x="460" y="171" width="95" height="29" backcolor="#66CCCC" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[112.36]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="9794aad7-ba7c-48cf-94d2-7a2c117f72c3" mode="Opaque" x="460" y="201" width="95" height="29" backcolor="#66CCCC" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[25HZ]]></text>
+			<box>
+				<pen lineColor="#FFFFFF"/>
+				<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<leftPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+				<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#FFFFFF"/>
+			</box>
+		</element>
+	</title>
+	<pageHeader height="230" splitType="Stretch">
+		<element kind="image" uuid="88ba8818-7ff8-430c-9629-cef285649be6" x="70" y="10" width="387" height="210">
+			<expression><![CDATA["/Images/image CMS.tif"]]></expression>
+		</element>
+		<element kind="ellipse" uuid="5c37d803-9fc2-4ae5-8f1b-f67f13b1910f" x="390" y="80" width="30" height="25">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="ellipse" uuid="491e6146-cc69-4673-8b23-fedc4df6e32b" x="173" y="40" width="27" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="ellipse" uuid="ad73567e-15b9-416e-8bff-456da95ae07b" x="110" y="150" width="24" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="ellipse" uuid="b7737cfd-f978-43b2-b9d0-da1c23da07d4" x="320" y="110" width="30" height="20"/>
+		<element kind="ellipse" uuid="4ab1e447-9920-48a6-bd29-99a738d1da2b" x="320" y="80" width="30" height="25"/>
+		<element kind="ellipse" uuid="0d251a2a-8d7a-4c85-86d1-3a0a6ba374b0" x="433" y="80" width="24" height="25">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="ellipse" uuid="9833a2a0-7a77-4d75-b58f-22dbaa1a4560" x="325" y="40" width="25" height="30"/>
+		<element kind="ellipse" uuid="05eec63d-ed21-4c5b-bf89-2de6e354331d" x="140" y="150" width="30" height="30"/>
+		<element kind="ellipse" uuid="2e98b4b7-3a7a-4b0c-ba90-b0642b8db423" x="173" y="150" width="24" height="30">
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+		</element>
+		<element kind="textField" uuid="02966dcd-825a-4f1e-a25f-eff6de16b9be" x="110" y="150" width="24" height="30" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[3]]></expression>
+		</element>
+		<element kind="textField" uuid="73fd2dda-d39b-41a5-a3f3-21bfc1886517" x="140" y="150" width="30" height="30" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[4]]></expression>
+		</element>
+		<element kind="textField" uuid="737b2653-a15f-4501-b3ca-77b3470d34ed" x="173" y="150" width="24" height="30" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[6]]></expression>
+		</element>
+		<element kind="textField" uuid="8d21ff7b-4c66-4c89-889e-faea3ca39b16" x="173" y="40" width="27" height="30" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[8
+]]></expression>
+		</element>
+		<element kind="textField" uuid="a69184b4-3b96-4334-89ec-63d69a686d04" x="325" y="40" width="25" height="28" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[12]]></expression>
+		</element>
+		<element kind="textField" uuid="4d9e8bf8-43d4-4751-9f38-aa8e0f1e5d52" x="433" y="81" width="24" height="24" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[1]]></expression>
+		</element>
+		<element kind="textField" uuid="8adbd171-5fbd-4816-b2ad-b8e2d4f1e263" x="390" y="81" width="30" height="24" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[0]]></expression>
+		</element>
+		<element kind="textField" uuid="5aa791b2-78ad-4442-84ec-c64181b0ebfd" x="320" y="111" width="30" height="19" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[7]]></expression>
+		</element>
+		<element kind="textField" uuid="a1930495-60e7-4fa9-a3ed-4ea5349da1a0" x="324" y="81" width="26" height="24" fontSize="14.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[9]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="170" splitType="Stretch"/>
+	<detail>
+		<band height="61" splitType="Stretch"/>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
